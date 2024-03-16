@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
   # TO DO ALL THE BELOW
   # GET /comments/1 or /comments/1.json
   def show
+	@video_upload = VideoUpload.find(params[:video_upload_id])
+    @comment = @video_upload.comments.find(params[:id])
+	render json:@comment
   end
 
   # GET /comments/new
